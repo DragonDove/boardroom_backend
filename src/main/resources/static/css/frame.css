@@ -1,0 +1,13 @@
+.panel{
+    background: none;
+    border-color: #000000
+}
+.card{
+    border-color: #000000
+}
+hr{
+   border-color: #000000
+}
+table.table tr td {
+    border: 1px solid #000;
+}

@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'top.dragondove'
+version = '0.0.1-ALPHA'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+ 
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //  mariadb数据库驱动
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.4.1'
+    //  apache shiro 授权框架（包含了spring-web-starter）
+    implementation 'org.apache.shiro:shiro-spring-boot-web-starter:1.4.1'
+    //  freemarker-shiro-tags 整合框架
+    implementation ('net.mingsoft:shiro-freemarker-tags:1.0.0') {
+        exclude group: 'org.apache.shiro'
+    }
+
+    //  webjars 包括echarts和zui（zui包含了jQuery）
+    implementation 'org.webjars.npm:echarts:4.1.0'
+    implementation 'org.webjars.bower:zui:1.9.0'
+
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+

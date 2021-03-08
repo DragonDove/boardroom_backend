@@ -1,0 +1,10 @@
+# IDE
+*.iml
+.idea
+.vscode
+
+# gradle
+.gradle
+
+# Binary
+*.class
